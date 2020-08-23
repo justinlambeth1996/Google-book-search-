@@ -1,9 +1,8 @@
+// Import React and render ServiceWorker
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./App";
-import ServiceWorker from "./ServiceWorker";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import registerServiceWorker from "./registerServiceWorker";
 
 ReactDOM.render(<App />, document.getElementById("root"));
-ServiceWorker();
+registerServiceWorker();

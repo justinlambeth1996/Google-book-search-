@@ -1,7 +1,15 @@
-const BookController = require("../controllers/book.controller");
+// Setting const routing variables
+const path = require("path");
+const router = require("express").Router();
+const apiRoutes = require("./api");
 
-module.exports = app => {
-  app.get('/api/books', BookController.all);
-  app.post('/api/books', BookController.create);
-  app.delete('/api/books/:id', BookController.delete)
-};
+// API Routes
+router.use("/api", apiRoutes);
+
+// If no API routes are hit, send the React app
+router.use((req, res) =>
+  res.sendFile(path.join(__dirname, "../client/build/index.html"))
+);
+
+// Export router
+module.exports = router;
